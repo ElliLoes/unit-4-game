@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Unit-4-Game</title>
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+
+<div class="container main-container">
+    <div class="row gameText">
+        <div class="col-md-8">
+            <h1>Chrystals Collector!</h1>
+            <br>
+            <p>
+            You will be shown a random number at the start of the game.
+            </p>
+            <p>
+            There are four chrystals below. By clicking on a chrystal you will add a specific amount of points to yout total score.</p>
+            <p>You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p>
+
+            <p>The value of each chrystal is hidden from you until you click on it.</p>
+            <p>Each time when the game starts, the game will change the values of each chrystal.</p>
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="targetScore"></div> 
+        </div>
+            <div class="col-md-3">
+            <div class="wins">Wins:</div>
+            <div class="losses">Losses:</div>
+        </div>
+    </div>
+    <br>
+
+    <div class="chrystals row">
+    <img class="col-md-2 chrystals" id="chrystal1" value="2" alt="Login" src="./assets/images/Christal1.jpeg">
+    <img class="col-md-2 chrystals" id="chrystal2" value="9" alt="Login" src="./assets/images/Christal2.jpeg">
+    <img class="col-md-2 chrystals" id="chrystal3" value="6" alt="Login" src="./assets/images/Christal3.jpeg">
+    <img class="col-md-2 chrystals" id="chrystal4" value="10" alt="Login" src="./assets/images/Christal4.jpeg">
+    </div>
+    <br>
+
+    <div class="currentScore col-md-4">
+            Your total Score is:
+    </div>
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+    
+
+    
+</body>
+</html>

@@ -5,78 +5,54 @@ var currentScore = 0;
 var crystalValues = [];
 
 
-function resetGame () {
-    resetScore ();
+function resetGame() {
+    resetScore();
+    resetStones();
+    updateDisplay();
+}
+
+function resetScore() {
+    targetScore = Math.floor(Math.random() * (120 - 19) + 19);
     currentScore = 0;
-    resetStones ();
-    updateDisplay ();
 }
 
-function resetScore () {
-    targetScore = Math.floor(Math.random()*(120-19) + 19);
-}
-
-function updateDisplay () {
+function updateDisplay() {
     $(".targetScore").text(targetScore);
     $(".currentScore").text(currentScore);
     $(".wins").text(wins);
     $(".losses").text(losses);
 }
 
-function resetStones () {
-    crystalValues[0] = Math.floor(Math.random()*12+1);
-    crystalValues[1] = Math.floor(Math.random()*12+1);
-    crystalValues[2] = Math.floor(Math.random()*12+1);
-    crystalValues[3] = Math.floor(Math.random()*12+1);
+function resetStones() {
+    crystalValues[0] = Math.floor(Math.random() * 12 + 1);
+    crystalValues[1] = Math.floor(Math.random() * 12 + 1);
+    crystalValues[2] = Math.floor(Math.random() * 12 + 1);
+    crystalValues[3] = Math.floor(Math.random() * 12 + 1);
 }
 
+function handleClick(crystalIndex) {
+    currentScore += crystalValues[crystalIndex];
+    if (currentScore == targetScore) {
+        wins++;
+        resetScore();
+        resetStones();
 
-function main () {
-    $("#chrystal1").on("click", function() {
-       currentScore+=crystalValues[0];
-       updateDisplay ();
-    });
-
-   // win loose reset
-
-
-
-
-    resetGame ();
+    } else if (currentScore > targetScore) {
+        losses++;
+        resetScore();
+        resetStones();
+    }
+    updateDisplay();
 }
 
-main ();
+function main() {
+    resetGame();
+    for (let i = 0; i < 4; i++) {
+        $("#chrystal" + (i+1)).on("click", function () {
+            handleClick(i);
+        }); 
+    }
+}
 
- 
-// $("#crystal2").on("click", function() {
-//     currentScore+=crystalValues;
-
-// $("#crystal3").on("click", function() {
-//     currentScore+=crystalValues;
-
-// $("#crystal4").on("click", function() {
-//     currentScore+=crystalValues;
-
-
-//   $("#randomNumber").text(randomNumber);
-
-//   var counter = 
-
-//   $(".crystals").on("click", function() {
- 
- 
-
-
-//     alert("New score: " + counter);
-
-//     if (counter === randomNumber) {
-//       alert("You win!");
-//     }
-
-//     else if (counter >= randomNumber) {
-//       alert("You lose!!");
-//     }
-
-//   });
-
+main();
 

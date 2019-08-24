@@ -2,7 +2,7 @@ var targetScore;
 var wins = 0;
 var losses = 0;
 var currentScore = 0;
-var crystalValues = [];
+var chrystalValues = [];
 
 
 function resetGame() {
@@ -23,15 +23,14 @@ function updateDisplay() {
     $(".losses").text(losses);
 }
 
-function resetStones() {
-    crystalValues[0] = Math.floor(Math.random() * 12 + 1);
-    crystalValues[1] = Math.floor(Math.random() * 12 + 1);
-    crystalValues[2] = Math.floor(Math.random() * 12 + 1);
-    crystalValues[3] = Math.floor(Math.random() * 12 + 1);
+function resetStones () {
+    for (let i=0; i < 4; i++) {
+        chrystalValues[i] = Math.floor(Math.random() * 12 + 1);
+    }
 }
 
-function handleClick(crystalIndex) {
-    currentScore += crystalValues[crystalIndex];
+function handleClick(chrystalIndex) {
+    currentScore += chrystalValues[chrystalIndex];
     if (currentScore == targetScore) {
         wins++;
         resetScore();
